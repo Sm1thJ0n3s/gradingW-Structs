@@ -170,7 +170,7 @@ func display (student: String, assignment: String) {
 // Made for Struct assignment exclusive.
 func checkStudentName (studentName: String) -> Bool {
     for student in students {
-        if student.name == studentName {
+        if student.name.lowercased() == studentName.lowercased() {
                 return true
         } else if (studentName == "All" || studentName == "all") {
             print("We understand you want to view all the student's grades")
