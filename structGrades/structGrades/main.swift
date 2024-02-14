@@ -146,14 +146,14 @@ func display (student: String, assignment: String) {
         } else {
             if assignment == "All" || assignment == "all" {
                 for displayInfo in students {
-                    if displayInfo.name == student {
+                    if displayInfo.name.lowercased() == student.lowercased() {
                         print("Here are \(student)'s grades:")
                         print(displayInfo.grades)
                     }
                 }
             } else if Int(assignment) != nil {
                 for displayInfo in students {
-                    if displayInfo.name == student {
+                    if displayInfo.name.lowercased() == student.lowercased() {
                         print("Here is \(student)'s grade on assignment #\(assignment): \(displayInfo.grades[(assignment as NSString).integerValue - 1])")
                     }
                 }
@@ -170,10 +170,10 @@ func display (student: String, assignment: String) {
 // Made for Struct assignment exclusive.
 func checkStudentName (studentName: String) -> Bool {
     for student in students {
+        print(student.name.lowercased())
         if student.name.lowercased() == studentName.lowercased() {
                 return true
         } else if (studentName == "All" || studentName == "all") {
-            print("We understand you want to view all the student's grades")
             return true
         }
     }
@@ -242,13 +242,13 @@ func gradeAverage (student: String, assignment: String) {
         } else {
             if assignment == "All" || assignment == "all" {
                 for studentName in students {
-                    if studentName.name == student {
+                    if studentName.name.lowercased() == student.lowercased() {
                         print("Here is \(studentName.name)'s final grade: \(studentName.finalGrade)")
                     }
                 }
             } else if Int(assignment) != nil {
                 for studentName in students {
-                    if studentName.name == student {
+                    if studentName.name.lowercased() == student.lowercased() {
                         print("Although available to do this similarly in the display grades function, here is \(studentName.name)'s grade:")
                         print("Requested grade view: \(studentName.grades[assignIndex])")
                     }
